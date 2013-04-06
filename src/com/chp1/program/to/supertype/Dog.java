@@ -1,4 +1,4 @@
-package com.chp1.simuduck.v3;
+package com.chp1.program.to.supertype;
 
 public class Dog implements Animal{
 
