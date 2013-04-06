@@ -2,6 +2,9 @@ package Basic;
 
 
 
+import com.chp1.designpuzzle.AxeBehaviour;
+import com.chp1.designpuzzle.BowAndArrowBehaviour;
+import com.chp1.designpuzzle.King;
 import com.chp1.program.to.supertype.Animal;
 import com.chp1.program.to.supertype.Cat;
 import com.chp1.program.to.supertype.Dog;
@@ -29,7 +32,6 @@ public class Tester {
         animal.makeSound();
     }
     
-    @Test
     public void test_simuduck_v3(){
         com.chp1.simuduck.v3.MallardDuck md = new com.chp1.simuduck.v3.MallardDuck();
         md.performQuack();
@@ -43,6 +45,19 @@ public class Tester {
         md.setFlyBehaviour(new FlyNoWay());
         md.performFly();
         
+    }
+    
+    @Test
+    public void test_fighting_game(){
+        
+        King k = new King();
+        //Lets change the weapon at run time
+        k.setWeapon(new AxeBehaviour());
+        k.fight();
+        
+        //Change again
+        k.setWeapon(new BowAndArrowBehaviour());
+        k.fight();
     }
     
 }
