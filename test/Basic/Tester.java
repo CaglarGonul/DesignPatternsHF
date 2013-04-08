@@ -59,11 +59,21 @@ public class Tester {
         k.fight();
     }
     
-    @Test
-    public void test_observer(){
+    public void test_observer_custom(){
         WheatherData wd = new WheatherData();
         CurrentConditionsDisplay cd = new CurrentConditionsDisplay();
         
+        cd.registerObserver(wd);
+        
+        wd.setMeasurements(80, 65, 30.4f);
+        wd.setMeasurements(82, 70, 29.2f);
+        wd.setMeasurements(78, 90, 29.2f);
+    }
+    
+    @Test
+    public void test_observer_builtin(){
+        com.chp2.observerpattern.builtin.WeatherData wd= new com.chp2.observerpattern.builtin.WeatherData();
+        com.chp2.observerpattern.builtin.CurrentConditionDisplay cd = new com.chp2.observerpattern.builtin.CurrentConditionDisplay();
         cd.registerObserver(wd);
         
         wd.setMeasurements(80, 65, 30.4f);
