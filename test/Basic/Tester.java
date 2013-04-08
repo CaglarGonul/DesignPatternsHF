@@ -1,7 +1,5 @@
 package Basic;
 
-
-
 import com.chp1.designpuzzle.AxeBehaviour;
 import com.chp1.designpuzzle.BowAndArrowBehaviour;
 import com.chp1.designpuzzle.King;
@@ -10,6 +8,8 @@ import com.chp1.program.to.supertype.Cat;
 import com.chp1.program.to.supertype.Dog;
 import com.chp1.simuduck.v3.FlyNoWay;
 import com.chp1.simuduck.v3.Squeak;
+import com.chp2.observerpattern.custom.CurrentConditionsDisplay;
+import com.chp2.observerpattern.custom.WheatherData;
 import org.junit.Test;
 
 public class Tester {
@@ -47,7 +47,6 @@ public class Tester {
         
     }
     
-    @Test
     public void test_fighting_game(){
         
         King k = new King();
@@ -60,4 +59,15 @@ public class Tester {
         k.fight();
     }
     
+    @Test
+    public void test_observer(){
+        WheatherData wd = new WheatherData();
+        CurrentConditionsDisplay cd = new CurrentConditionsDisplay();
+        
+        cd.registerObserver(wd);
+        
+        wd.setMeasurements(80, 65, 30.4f);
+        wd.setMeasurements(82, 70, 29.2f);
+        wd.setMeasurements(78, 90, 29.2f);
+    }
 }
